@@ -1,0 +1,105 @@
+.git-bg {
+  text-align: center;
+  background-image: url('../../assets/img/git-branch-bg.jpg'), linear-gradient(#027fd2,#9a7800);
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: darken;
+  margin-bottom: 0;
+  border-radius: 0;
+}
+
+.equal-space {
+  word-spacing: 5px;
+  text-align: center;
+  padding: 4px;
+}
+
+.min-h-30 {
+  min-height: 330px;
+}
+
+.pr-bg:hover {
+  background-image: url(../../assets/img/pr-bg.jpg);
+  background-size: cover;
+  background-position: center;
+  font-size: larger;
+}
+
+.pr-bg {
+  background-image: url(../../assets/img/pr-bg1.jpg);
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+
+@media (min-width: 0px) and (max-width: 575px) {
+  .col-12.col-sm-5.col-md-4.col-lg-5.col-xl-3.jumbotron.mb-0.border-0.pr-bg {
+    background-image: url(../../assets/img/pr-bg1.jpg);
+    background-size: cover;
+    background-position: 0 -150px;
+    color: white;
+  }
+}
+
+@media (min-width: 0px) and (max-width: 575px) {
+  .col-12.col-sm-5.col-md-4.col-lg-5.col-xl-3.jumbotron.mb-0.border-0.pr-bg:hover {
+    background-image: url(../../assets/img/pr-bg.jpg);
+    background-size: cover;
+    background-position: 0 -150px;
+    color: white;
+  }
+}
+
+#git-graph rect.day {
+  shape-rendering: geometricPrecision;
+  outline: 1px solid rgba(27,31,35,.04);
+  outline-offset: -1px;
+  rx: 2;
+  ry: 2;
+}
+
+rect {
+  shape-rendering: crispedges;
+}
+
+svg.js-calendar-graph-svg {
+}
+
+rect.day {
+  shape-rendering: geometricPrecision;
+  outline: 1px solid rgba(27,31,35,.04);
+  outline-offset: -1px;
+  rx: 2;
+  ry: 2;
+}
+
+rect[Attributes Style] {
+  width: 10;
+  height: 10;
+  x: 14;
+  y: 0;
+  fill: rgb(235, 237, 240);
+}
+
+:not(svg) {
+  transform-origin: 0px 0px;
+}
+
+rect {
+  shape-rendering: crispedges;
+}
+
+g[Attributes Style] {
+  transform: translate(10, 20);
+}
+
+text.wday {
+  font-size: 9px;
+  fill: #767676;
+}
+
+text.month {
+  font-size: 10px;
+  fill: #767676;
+}
+
