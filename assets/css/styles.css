@@ -103,3 +103,19 @@ text.month {
   fill: #767676;
 }
 
+.navbar-light .navbar-text .separator::after {
+  content: ' | ';
+}
+
+.navbar-light .navbar-text .separator {
+  margin-right: auto;
+  text-decoration: none;
+  color: #465765;
+  margin-bottom: auto;
+}
+
+.bg-linear {
+  background: linear-gradient(to bottom, #ffffff 0%, #ffffff 60%,#f4f4f4 100%) !important;
+  box-shadow: 0px 0px 10px -3px #888890;
+}
+

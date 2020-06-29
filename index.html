@@ -19,20 +19,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.css">
     <link rel="stylesheet" href="assets/css/Navigation-Clean.css">
+    <link rel="stylesheet" href="assets/css/Navigation-with-Button.css">
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
 <body class="text-monospace">
-    <nav class="navbar navbar-light navbar-expand-md navigation-clean">
-        <div class="container"><a class="navbar-brand pulse animated" href="#">PRATEEK ROKADIYA</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-            <div
-                class="collapse navbar-collapse" id="navcol-1">
-                <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item" role="presentation"><a class="nav-link active" href="#projects">Projects</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="#workex">WorkEx</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="#">Blog</a></li>
-                </ul>
-        </div>
+    <nav class="navbar navbar-light navbar-expand-md sticky-top navigation-clean-button bg-linear">
+        <div class="container"><a class="navbar-brand" href="#">Prateek Rokadiya</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse d-md-flex justify-content-md-end"
+                id="navcol-1"><span class="navbar-text actions"> <a class="separator" href="#">Home</a><a class="separator" href="#projects">Projects</a><a class="separator" href="#workex">WorkEx</a><a class="btn btn-light swing animated action-button" role="button" href="#">Blog</a></span></div>
         </div>
     </nav>
     <div>
@@ -69,7 +64,7 @@
     <div class="features-boxed">
         <div class="container">
             <div class="intro">
-                <h2 class="text-center" style="font-family: Aldrich, sans-serif;" name="projects">Projects</h2>
+                <h2 class="text-center" id="projects" style="font-family: Aldrich, sans-serif;" name="projects">Projects</h2>
                 <p class="text-center">Nunc luctus in metus eget fringilla. Aliquam sed justo ligula. Vestibulum nibh erat, pellentesque ut laoreet vitae.</p>
             </div>
             <div class="row justify-content-center features">
@@ -149,7 +144,7 @@
     <div class="features-boxed bg-white">
         <div class="container">
             <div class="intro">
-                <h2 class="text-center" style="font-family: Aldrich, sans-serif;" name="workex">Work Experience</h2>
+                <h2 class="text-center" id="workex" style="font-family: Aldrich, sans-serif;" name="workex">Work Experience</h2>
             </div>
             <div class="row justify-content-center">
                 <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
