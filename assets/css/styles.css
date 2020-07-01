@@ -119,3 +119,7 @@ text.month {
   box-shadow: 0px 0px 10px -3px #888890;
 }
 
+.col-12.col-sm-5.col-md-4.col-lg-5.col-xl-3.jumbotron.mb-0.pr-bg.br-0 {
+  border-radius: 0px;
+}
+
