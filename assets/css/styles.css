@@ -22,14 +22,13 @@
   background-image: url(../../assets/img/pr-bg.jpg);
   background-size: cover;
   background-position: center;
-  font-size: larger;
 }
 
 .pr-bg {
   background-image: url(../../assets/img/pr-bg1.jpg);
   background-size: cover;
   background-position: center;
-  color: white;
+  /*color: white;*/
 }
 
 @media (min-width: 0px) and (max-width: 575px) {
@@ -85,6 +84,10 @@ rect[Attributes Style] {
   transform-origin: 0px 0px;
 }
 
+:not(p) {
+  color: steelblue;
+}
+
 rect {
   shape-rendering: crispedges;
 }
@@ -121,5 +124,9 @@ text.month {
 
 .col-12.col-sm-5.col-md-4.col-lg-5.col-xl-3.jumbotron.mb-0.pr-bg.br-0 {
   border-radius: 0px;
+}
+
+.box .learn-more {
+  display: none;
 }
 

@@ -48,6 +48,7 @@
 
 .footer-basic .social > a:hover {
   opacity: 0.9;
+  border: 1px solid #6a99c1;
 }
 
 .footer-basic .copyright {
