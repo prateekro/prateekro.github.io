@@ -83,6 +83,26 @@ async function generateChart() {
     return svg + '</svg>';
 }
 
+function toHtml(htmlString) {
+    var div = document.createElement('div');
+    div.innerHTML = htmlString.trim();
+  
+    // Change this to div.childNodes to support multiple top-level nodes
+    return div.firstChild;
+}
+
+function responsiveSvg(svgTag) {
+    let svg = toHtml(svgTag);
+
+    svg.setAttribute("preserveAspectRatio", "xMinYMin meet");
+    svg.setAttribute("viewBox", [0, 0, svg.getAttribute("width"), svg.getAttribute("height")].join(" "));
+
+    svg.removeAttribute("width");
+    svg.removeAttribute("height");
+
+    return svg;
+}
+
 async function readyFn(jQuery) {
     // Code to run when the document is ready.
     console.log("Calling GET");
@@ -92,7 +112,7 @@ async function readyFn(jQuery) {
 //            </svg>`
     let svg = await getSvg(getDate(1), getDate())
     console.log("SVG Formed");
-    $('#git-graph').append(svg);
+    $('#git-graph').append(responsiveSvg(svg));
     console.log("Chart Inserted");
 }
 

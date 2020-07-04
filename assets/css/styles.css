@@ -123,3 +123,7 @@ text.month {
   border-radius: 0px;
 }
 
+.features-boxed .item .box {
+  min-height: 600px;
+}
+
