@@ -130,3 +130,17 @@ text.month {
   display: none;
 }
 
+.share-tech-mono {
+  font-family: 'Share Tech Mono', monospace;
+}
+
+.features-boxed.pb-4.b-y-dash-blue {
+  border-top: 1.5px dashed steelblue;
+  border-bottom: 1.5px dashed steelblue;
+}
+
+.intro .text-green-tech {
+  font-family: 'Share Tech Mono', monospace;
+  color: forestgreen;
+}
+
