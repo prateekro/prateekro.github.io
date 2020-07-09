@@ -144,3 +144,19 @@ text.month {
   color: forestgreen;
 }
 
+.navigation-clean-button .navbar-text .action-button {
+  background: steelblue;
+}
+
+.navigation-clean-button .navbar-text .action-button:hover {
+  background: #3ba6ff;
+}
+
+@media (max-width: 767px) {
+  .nav-center {
+    text-align: center !important;
+    align-self: center !important;
+    width: 100%;
+  }
+}
+
