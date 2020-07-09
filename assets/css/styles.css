@@ -84,7 +84,7 @@ rect[Attributes Style] {
 }
 
 :not(p) {
-  color: steelblue;
+  color: #00596d;
 }
 
 rect {
@@ -144,11 +144,11 @@ text.month {
 }
 
 .navigation-clean-button .navbar-text .action-button {
-  background: steelblue;
+  background: #00596d;
 }
 
 .navigation-clean-button .navbar-text .action-button:hover {
-  background: #3ba6ff;
+  background: #53afc5;
 }
 
 @media (max-width: 767px) {
@@ -220,9 +220,10 @@ text.month {
 }
 
 .btn-secondary {
-  background-color: #d3d9df31 !important;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#ffffff14), color-stop(70%, #e9ecefd9), to(#dde2e614));
-  background-image: linear-gradient(#ffffff14, #e9ecefd9 70%, #dde2e614);
+  color: #fff !important;
+  background-color: rgba(0, 90, 108, 0.5) !important;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 90, 108, 0)), to(rgba(0, 90, 108, 0)));
+  background-image: linear-gradient(rgba(0, 90, 108, 0), rgba(0, 90, 108, 0));
   background-repeat: no-repeat;
 }
 
@@ -241,6 +242,7 @@ text.month {
   color: #f3f1f0;
   padding: 4px;
   padding-right: 8px;
+  margin-top: 0.2rem;
 }
 
 .btn-secondary:hover {
