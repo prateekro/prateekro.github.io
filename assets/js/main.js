@@ -1,5 +1,6 @@
 function getGithubChart(from, to) {
 //    "url": "https://github.com/users/prateekro/contributions?from="+from+"&to="+to,
+// Issue: CORS Block
     return new Promise((resolve, reject) => {
     let settings = {
             "url": "https://github.com/users/prateekro/contributions?from=2019-06-01&to=2020-06-21",
@@ -59,30 +60,6 @@ function getDate(last = 0) {
     return ymd[0] + '-' + ymd[1] + '-' + (ymd[2] - last);
 }
 
-async function generateChart() {
-    try {
-        let data = await getSvg(getDate(1), getDate());
-    } catch (e) {
-        console.log('Issue found:' + JSON.stringify(e));
-    }
-    console.log("SVG filtering");
-    let svg = '<svg>\n';
-    flag = 0;
-    for(let line of data.split('\n')) {
-        if (line.indexOf('svg') != -1) {
-            flag? flag = 0 : flag = 1
-            continue;
-        }
-        if (flag) {
-            svg += line + '\n'
-        } else {
-            continue;
-        }
-    }
-    console.log("SVG filtered" + svg);
-    return svg + '</svg>';
-}
-
 function toHtml(htmlString) {
     var div = document.createElement('div');
     div.innerHTML = htmlString.trim();
@@ -103,21 +80,101 @@ function responsiveSvg(svgTag) {
     return svg;
 }
 
+// Svg tooltip - Add event listener
+function addListenerToRects(svg) {
+    let svg_list = svg.getElementsByTagName("rect");
+      let total_count = 0;
+      for(let i = 0; i < svg_list.length; i++) {
+        let rect = svg_list[i];
+        rect.addEventListener("mouseover", onMouseEnter);
+        rect.addEventListener("mouseout", onMouseLeave);
+        
+        // Count total contributions
+        total_count += parseInt(rect.getAttribute("data-count"));
+    }
+
+    return total_count;
+}
+
 async function readyFn(jQuery) {
     // Code to run when the document is ready.
-    console.log("Calling GET");
-//    let svg = await getSvg(getDate(1), getDate())
-//    let svg = `<svg width="100" height="100">
-//                <circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" />
-//            </svg>`
+    console.log("Calling Contributions");
     let svg = await getSvg(getDate(1), getDate())
-    console.log("SVG Formed");
-    $('#git-graph').append(responsiveSvg(svg));
-    console.log("Chart Inserted");
+    
+    console.log("Contributions received");
+    responsivesvg = responsiveSvg(svg);
+    $('#git-graph').append(responsivesvg);
+    console.log("Contributions Inserted");
+    
+    let totalContri = addListenerToRects($('#git-graph')[0]);
+
+    $('#git-graph').append(totalContri);
 }
 
 $( document ).ready(function readyFunc() {
     console.log('This is test');
     readyFn();
 });
+
+// Svg tooltip
+
+function getDat(e) {
+    console.log('Reached in getDate');
+    console.log(e);
+    console.log('in getDate');
+    var t = e.split("-").map(function(e) {
+            return parseInt(e, 10)
+        }),
+    r = t[0],
+    a = t[1],
+    o = t[2];
+    return new Date(Date.UTC(r, a - 1, o));
+}
+  
+function pluralize(num, word) {
+    if(num <= 1) {
+      return word;
+    } else {
+      return word + "s";
+    }
+}
+  
+var month_name = ["January", "February", "March", "April", "May", "June", 
+                "July", "August",
+                "September", "October", "November", "December"];
+
+function onMouseEnter(e) {
+    e.target.matches("rect.day") && (onMouseLeave(), function(e) {
+        var n = document.body;
+        var r = e.getAttribute("data-date");
+        var a = function(e, t) {
+            // MMM DD, YYYY
+            var n = month_name[t.getUTCMonth()].slice(0, 3) + 
+                    " " + t.getUTCDate() + ", " + t.getUTCFullYear(),
+            // No contribution or a string 
+            r = 0 === e ? "No" : e.toString();
+            // Create the element and add the class
+            a = document.createElement("div");
+            a.classList.add("svg-tip", "svg-tip-one-line");
+            var o = document.createElement("strong");
+            o.textContent = r + " " + pluralize(e, "contribution");
+            a.append(o, " on " + n);
+            return a;
+        }(parseInt(e.getAttribute("data-count")), getDat(r));
+        n.appendChild(a);
+        var o = e.getBoundingClientRect(),
+            s = o.left + window.pageXOffset - a.offsetWidth / 2 + o.width / 2,
+            i = o.bottom + window.pageYOffset - a.offsetHeight - 2 * o.height;
+        a.style.top = i + "px", a.style.left = s + "px"
+    }(e.target));
+  
+    return;
+}
+  
+function onMouseLeave() {
+    var e = document.querySelector(".svg-tip");
+    e && e.remove();
+
+    return;
+}
 
