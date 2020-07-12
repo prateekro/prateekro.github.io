@@ -342,3 +342,55 @@ h2, .h2 {
   color: #fff;
 }
 
+.total-contribution {
+  font-size: 10px;
+  color: #bb9f74;
+}
+
+@media (min-width: 576px) {
+  .total-contribution {
+    font-size: 12px;
+  }
+}
+
+.contrib-legend {
+  float: right;
+}
+
+.contrib-legend .legend {
+  position: relative;
+  bottom: -1px;
+  display: inline-block;
+  margin: 0 5px;
+  list-style: none;
+  padding: 0;
+}
+
+.contrib-legend .legend li {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  box-shadow: inset 0 0 0 1px rgba(27,31,35,.04);
+}
+
+.contrib-legend > ul :nth-child(1) {
+  background-color: #ebedf0;
+}
+
+.contrib-legend > ul :nth-child(2) {
+  background-color: #9be9a8;
+}
+
+.contrib-legend > ul :nth-child(3) {
+  background-color: #40c463;
+}
+
+.contrib-legend > ul :nth-child(4) {
+  background-color: #30a14e;
+}
+
+.contrib-legend > ul :nth-child(5) {
+  background-color: #216e39;
+}
+

@@ -108,7 +108,9 @@ async function readyFn(jQuery) {
     
     let totalContri = addListenerToRects($('#git-graph')[0]);
 
-    $('#git-graph').append(totalContri);
+    $('#git-graph').append('<div class="d-flex" id="git-contribution"></div>');
+
+    $('#git-contribution').append('<div class="total-contribution col text-left">' + totalContri + pluralize(totalContri , ' contribution') + '  in the last year</div>');
 }
 
 $( document ).ready(function readyFunc() {
