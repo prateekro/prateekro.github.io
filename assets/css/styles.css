@@ -169,6 +169,10 @@ text.month {
   line-height: 18px;
 }
 
+.workex-desc {
+  padding-bottom: 40px;
+}
+
 .workex-desc > div :first-child {
   margin-bottom: 0px;
 }
@@ -261,10 +265,28 @@ h2, .h2 {
   text-shadow: 0px 0px 7px #005a6d;
 }
 
-.features-boxed .fa:hover {
+.features-boxed .box:hover > h3 {
+  color: #BC9F75 !important;
+  text-shadow: 0px 0px 5px #F4F1F0 !important;
+  cursor: pointer;
+}
+
+.features-boxed .box:hover > i {
   color: #005a6d !important;
   text-shadow: 0px 0px 5px #52b0c4 !important;
   cursor: pointer;
+}
+
+#git-contribution {
+  padding-right: 1rem !important;
+}
+
+#git-graph {
+  padding-bottom: 40px;
+}
+
+a#git-graph:hover {
+  text-decoration: none;
 }
 
 .svg-tip {
@@ -344,7 +366,6 @@ h2, .h2 {
 
 .total-contribution {
   font-size: 10px;
-  color: #bb9f74;
 }
 
 @media (min-width: 576px) {
@@ -355,6 +376,11 @@ h2, .h2 {
 
 .contrib-legend {
   float: right;
+  font-size: 12px;
+}
+
+.contrib-legend > p {
+  margin-bottom: 0px;
 }
 
 .contrib-legend .legend {

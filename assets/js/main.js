@@ -62,7 +62,7 @@ function getDate(last = 0) {
 
 function toHtml(htmlString) {
     var div = document.createElement('div');
-    div.innerHTML = htmlString.trim();
+    div.innerHTML = String(htmlString).trim();
   
     // Change this to div.childNodes to support multiple top-level nodes
     return div.firstChild;
@@ -96,6 +96,14 @@ function addListenerToRects(svg) {
     return total_count;
 }
 
+var legend = 
+`<div class="contrib-legend" title="A summary of pull requests, issues opened, and commits to the default and gh-pages branches.">
+    Less
+    <ul class="legend mx-0"><li></li><li></li><li></li><li></li><li></li></ul>
+    More
+</div>
+`;
+
 async function readyFn(jQuery) {
     // Code to run when the document is ready.
     console.log("Calling Contributions");
@@ -108,9 +116,13 @@ async function readyFn(jQuery) {
     
     let totalContri = addListenerToRects($('#git-graph')[0]);
 
-    $('#git-graph').append('<div class="d-flex" id="git-contribution"></div>');
+    $('#git-graph').append('<div class="d-flex justify-content-around w-100" id="git-contribution"></div>');
 
-    $('#git-contribution').append('<div class="total-contribution col text-left">' + totalContri + pluralize(totalContri , ' contribution') + '  in the last year</div>');
+    $('#git-contribution').append('<div class="total-contribution flex-fill text-left">' + totalContri + pluralize(totalContri , ' contribution') + '  in the last year</div>');
+    
+    $('#git-contribution').append(legend);
+
+
 }
 
 $( document ).ready(function readyFunc() {
@@ -121,9 +133,9 @@ $( document ).ready(function readyFunc() {
 // Svg tooltip
 
 function getDat(e) {
-    console.log('Reached in getDate');
-    console.log(e);
-    console.log('in getDate');
+    // console.log('Reached in getDate');
+    // console.log(e);
+    // console.log('in getDate');
     var t = e.split("-").map(function(e) {
             return parseInt(e, 10)
         }),
