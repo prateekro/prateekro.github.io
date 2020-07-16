@@ -424,3 +424,15 @@ a#git-graph:hover {
   background-color: #216e39;
 }
 
+.footer-basic ul a:hover > i {
+  color: #bb9f74;
+}
+
+p {
+  cursor: default;
+}
+
+p.copyright:hover {
+  color: #bb9f74;
+}
+
