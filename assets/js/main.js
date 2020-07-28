@@ -106,6 +106,11 @@ var legend =
 
 async function readyFn(jQuery) {
     // Code to run when the document is ready.
+
+    // Get current year to feed copyright.
+    let copyright = document.getElementById("copyright");
+    copyright.textContent += new Date().getFullYear();
+
     console.log("Calling Contributions");
     let svg = await getSvg(getDate(1), getDate())
     
